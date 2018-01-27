@@ -6,7 +6,7 @@ cursor = db.cursor()  # 使用cursor()方法获取操作游标
 # 创建表
 # cursor.execute('DROP table if EXISTS lzy') #如果存在则删除
 create = '''
-    create table lzy(
+    create table lzyy(
         id int primary key not null,
         title varchar(100) not null,
         price int(10) not null,
@@ -15,7 +15,7 @@ create = '''
 '''
 
 add = '''
-   insert into lzy(id,title,price,date) VALUES ('1','哈哈','100000','2018-1-27')
+   insert into lzyy(id,title,price,date)VALUES(2121,1,22,22);
 '''
 
 delete = '''
@@ -29,11 +29,13 @@ query = '''
 select * from lzy
 '''
 try:
-    cursor.execute(query)
+    cursor.execute(add)
+    print("插入成功")
     # data = cursor.fetchall()  #查询时需要
     # print(data)
     db.commit()
-except:
+except Exception as e:
+    print(e)
     db.rollback()
 db.close()
 
