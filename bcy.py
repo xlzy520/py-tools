@@ -30,7 +30,7 @@ for i in img_url:
     x = x + 1
     src = i.get('src')
     html = requests.get(src, headers=header)
-    file_name = title + re.compile('(1.*?\d)(?=/post)').search(src).group(0) + str(x) + ".jpg"
+    file_name = title + re.compile('(?<=detail/).*?(?=/post)').search(src).group(0) + str(x) + ".jpg"
     f = open(path + file_name, 'wb')
     f.write(html.content)
     f.close()
